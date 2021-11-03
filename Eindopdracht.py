@@ -299,13 +299,6 @@ def nosnitcha():
 
 
 
-def Executie():
-
-  print("\nJe zei een verkeerd woord en werd gexecuteerd.")
-
-
-
-
 def Vraag1B():
 
   plek = input("\nWaar wil je naartoe vluchten?\n>")
@@ -315,7 +308,14 @@ def Vraag1B():
   elif answer == "b":
     AutoStart()
   else:
-    Vraag1B("Kom op man / vrouw!")
+    Vraag1B()
+
+
+
+
+def Executie():
+
+  print("\nJe zei een verkeerd woord en werd gexecuteerd.")
 
 
 
