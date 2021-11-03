@@ -1,14 +1,35 @@
 naam = input("Hallo wat is jou naam?\n>")
 
+
+def Opnieuw():
+  print("\nWil je opnieuw proberen? (y or n)")
+  
+
+  answer = input(">").lower()
+
+  if "y" in answer:
+    start()
+  else:
+    exit()
+
+
+def game_over(reason):
+
+  print("\n" + reason)
+  print("Game Over!")
+
+  Opnieuw()
+
+
 def start():
 
-  antwoord = input("\n" + naam + " je woont in een land en de nieuwe dictator kom t je land binnen wat doe je?\nA) Ik wacht het af en doe er niks tegen,\nB) Je maakt plannen om te vluchten,\nC) Ik wil terug vechten.\n> ").lower()
+  answer = input("\n" + naam + " je woont in een land en de nieuwe dictator kom t je land binnen wat doe je?\nA) Ik wacht het af en doe er niks tegen,\nB) Je maakt plannen om te vluchten,\nC) Ik wil terug vechten.\n> ").lower()
 
-  if "a" in antwoord:
+  if answer == "a":
     Executie()
-  elif "b" in antwoord:
+  elif answer == "b":
     Vraag1B()
-  elif "c" in antwoord:
+  elif answer == "c":
     Vraag1C()
   else:
     start("Kom op zo lastig is het niet.")
@@ -29,9 +50,9 @@ def Vraag1CA():
 
   answer = input("\nA) Je word gevonden door een resistence fighter hij verteld je dat ze geurilla tactics gebruiken, Ga je met ze mee?\nA) Ja,\nB) Nee\n>")
   if answer == "ja":
-    insert()
+    Vraag1CAA()
   elif answer == "nee":
-    insert()
+    pass
   else:
     Vraag1CA()
 
@@ -40,33 +61,101 @@ def Vraag1CAA():
 
   answer = input("\nDe rebellen geven jou een biertje en een AK ze sturen je in een truck naar een van hun kampen, een paar dagen later kom je op het kamp aan je ziet dat er een 9.000.000 euro bounty op de rebellen staan wat doe je?\nA) Niks ik ben trouw aan mijn nieuwe broeders,\nB) Met zo veel geld kan ik makkelijker weg,\nC) Laten zien aan de leiders van de rebellen\n>")
   if answer == "a":
-    input()
+    nosnitch()
   elif answer == "b":
-    input()
+    Vraag1CAAB()
   elif answer == "c":
-    insert()
+    goodsnitch()
   else:
     Vraag1CAA()
 
 
-def game_over(reason):
+def Vraag1CAAB():
 
-  print("\n" + reason)
-  print("Game Over!")
-
-  Opnieuw()
+  game_over("\nJe belt het leger die zeiden dat ze zouden komen jij wacht op ze, Een aantal uur later komen ze aan alleen word jij geraakt door een van de tanks en je sterft.")
 
 
-def Opnieuw():
-  print("\nWil je opnieuw proberen? (y or n)")
-  
+def goodsnitch():
 
-  answer = input(">").lower()
+  answer = input("\nJe praat met de leiders van de rebellen over de brochure ze geven je de optie om het land uit te komen en naar cuba te gaan doe je dat?\nA) Ja graag,\nB) Nee ik blijf en vecht,\nC) Is nederland ook een optie?\n>")
+  if answer == "a":
+    goodsnitcha()
 
-  if "y" in answer:
-    start()
+def goodsnitcha():
+
+  answer = input("\nZe geven je twee opties van reizen,\nA) Land,\nB) Lucht?\n>")
+  if answer == "a":
+    land()
+  elif answer == "b":
+    Cuba()
   else:
-    exit()
+    goodsnitcha()
+
+
+def land():
+
+  answer = input("\nOp een haven moet je kiezen tussen boten er zijn er twee een oude boot en een nieuwe boot welke kies je?\nA) De oude denk ik.\nB) De nieuwe boot natuurlijk\n>")
+
+  if answer == "a":
+    BootA()
+  elif answer == "b":
+    Cuba()
+  else:
+    land()
+
+
+def Cuba():
+  
+  answer = input("\nJe vlucht naar cuba na 5 jaar heb je een leven op gang je heb vrienden een vrouw en kinderen. Wat doe je?\nA) Ik start een drugscartel,\nB) Ik moet terug naar mijn eigen land,\nC) Ik heb geluk gevonden ik hou het zo\n>")
+  if answer == "a":
+    CubaA()
+  elif answer == "b":
+    CubaB()
+  elif answer == "c":
+    CubaC()
+  else:
+    Cuba()
+
+
+def CubaC():
+  game_over("\nJe bent gelukkig en leid je leven met geluk je sterft op oude leeftijd met je kinderen en vrouw aan je zij")
+
+
+def CubaB():
+  game_over("\nJe gaat terug naar je land van afkomst hier word je opgepakt en opgesloten.")
+
+
+def CubaA():
+
+  game_over("\nJe start een succesvol drugs cartel todat je een olie mijn vind vol met olie de amerikaanse overheid stuurt een A-10 warthog naar jou toe om het te stelen helaas kom je om")
+
+
+def BootA():
+
+  game_over("De boot was te fragiel om te varen je komt om in de crash.")
+
+
+def nosnitch():
+  
+  answer = input("\nJe snitcht niet op de rebellen, Wat doe je met de foto?\nA) Niks ik laat het liggen,\nB) Ik verscheur hem\nC) Ik laat het zien aan de leiders.\n>")
+  if answer == "a":
+    nosnitcha()
+  elif answer == "b":
+   nosnitchb()
+  elif answer == "c":
+    goodsnitch()
+  else:
+    nosnitch()
+
+
+def nosnitchb():
+
+  game_over("iemand belt het leger die zeiden dat ze zouden komen jij wacht op ze, Een aantal uur later komen ze aan alleen word jij geraakt door een van de tanks en je sterft.")
+
+
+def nosnitcha():
+
+  game_over("je vecht de rest van de tijd met de dictator totdat je uiteindelijk wint.")
 
 
 def Executie():
@@ -234,7 +323,8 @@ def GrotA():
 
 def GrotB():
 
-  game_over("Je loopt Hopelijk richting de grens maar na 48 uur sterf je aan de verwonding")
+  game_over("Je loopt Hopelijk richting de grens")
+  Vraag1CA()
 
 
 def GrotC():
