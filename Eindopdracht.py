@@ -1,6 +1,8 @@
 naam = input("Hallo wat is jou naam?\n>")
 
 
+
+
 def Opnieuw():
   print("\nWil je opnieuw proberen? (y or n)")
   
@@ -13,12 +15,16 @@ def Opnieuw():
     exit()
 
 
+
+
 def game_over(reason):
 
   print("\n" + reason)
   print("Game Over!")
 
   Opnieuw()
+
+
 
 
 def start():
@@ -34,17 +40,36 @@ def start():
   else:
     start("Kom op zo lastig is het niet.")
 
+
+
+
 def Vraag1C():
 
   answer = input("\nHoe wil je terugvechten?\nA) Net zoals in vietnam,\nB) Door een mes te pakken en ze neer te steken,\nC) Ik wil toch niet vechten\n>")
   if answer == "a":
     Vraag1CA()
   elif answer == "b":
-    insert()
+    Vraag1CB()
   elif answer == "C":
-    insert()
+    Vraag1CC()
   else:
     Vraag1C()
+    
+
+
+
+def Vraag1CC():
+  game_over("\neen A-10 warthog lost een bombing run en daarin ben jij gestorven.")
+
+
+
+
+def Vraag1CB():
+
+  game_over("\nJe rent op de soldaten af en je struikelt over een grenaat en breekt je nek.")
+
+
+
 
 def Vraag1CA():
 
@@ -52,9 +77,11 @@ def Vraag1CA():
   if answer == "ja":
     Vraag1CAA()
   elif answer == "nee":
-    pass
+    Vraag1B()
   else:
-    Vraag1CA()
+    Vraag1CA("error")
+
+
 
 
 def Vraag1CAA():
@@ -70,9 +97,13 @@ def Vraag1CAA():
     Vraag1CAA()
 
 
+
+
 def Vraag1CAAB():
 
   game_over("\nJe belt het leger die zeiden dat ze zouden komen jij wacht op ze, Een aantal uur later komen ze aan alleen word jij geraakt door een van de tanks en je sterft.")
+
+
 
 
 def goodsnitch():
@@ -80,6 +111,96 @@ def goodsnitch():
   answer = input("\nJe praat met de leiders van de rebellen over de brochure ze geven je de optie om het land uit te komen en naar cuba te gaan doe je dat?\nA) Ja graag,\nB) Nee ik blijf en vecht,\nC) Is nederland ook een optie?\n>")
   if answer == "a":
     goodsnitcha()
+  elif answer == "b":
+    nosnitcha()
+  elif answer == "c":
+    goodsnitchC()
+
+
+
+
+def goodsnitchC():
+
+  answer = input("\nJa zeggen ze alleen wordt dit lastiger dan Cuba weet je het zeker?\nA) Ja,\nB) Nee\n>")
+  if answer == "a":
+    Nederland()
+  elif answer == "b":
+    Cuba()
+
+
+
+
+def Nederland():
+
+  answer = input("\nJe word op een transport gezet en je krijgt de instructies om stil te blijven, een aantal uur in de reis stop het transport je hoort een aantal schoten wat doe je?\nA) Ik kijk wat er aan de hand is,\nB) Ik luister naar de instructies,\nC) Ik ren weg\n>")
+  if answer == "a":
+    NederlandA()
+  elif answer == "b":
+    pass
+  elif answer == "c":
+    NederlandC()
+
+
+
+
+def NederlandC():
+
+  answer = input("\nJe rent weg van het conflict en komt in de wildernis wat doe je\nB) Ik ga terug,\nA) Ik probeer een auto te vinden\n>")
+  if answer == "a":
+    AutoStart("\nJe vind een auto en je rijdt richting de grens")
+  elif answer == "b":
+    nederlandB()
+  else:
+    NederlandC()
+
+
+
+
+def nederlandB():
+
+  answer = input("\nNa een tijdje schieten stopt het het transport begint weer te bewegen na een tijdje stop het transport op een vliegveld een man doet open en zegt dat je mee moet komen wat doe je?\nA) Ik blijf zitten,\nB) Ik loop mee.\n>")
+  if answer == "a":
+    Nederlaag()
+  elif answer == "b":
+    NederlandEnd()
+  else:
+    nederlandB()
+
+
+
+
+def NederlandEnd():
+
+  answer = input("\nJe loopt mee met de man naar het vliegtuig deze stijgt op na een reis van een aantal uur land je in nederland je word begroet door een aantal militairen omdat je onderdeel was van de rebellen krijg je sneller een inburgering en je krijgt de optie over waar je wil wonen.\nA) Urk,\nB) Den helder,\nC) Friesland\n>")
+  if answer == "a":
+    End()
+  elif answer == "b":
+    End()
+  elif answer == "c":
+    End()
+  else:
+    NederlandEnd()
+
+
+
+
+def End():
+  game_over("Het leven is lastig want je kan de taal niet zo goed maar je haalt het door")
+
+
+
+
+def Nederlaag():
+  game_over("\nDe man word boos en trekt je uit het transport")
+
+
+
+
+def NederlandA():
+  game_over("\nJe steekt je hoofd uit het transport je ziet soldaten ze richten hun wapen en schieten je dood.")
+
+
+
 
 def goodsnitcha():
 
@@ -92,6 +213,8 @@ def goodsnitcha():
     goodsnitcha()
 
 
+
+
 def land():
 
   answer = input("\nOp een haven moet je kiezen tussen boten er zijn er twee een oude boot en een nieuwe boot welke kies je?\nA) De oude denk ik.\nB) De nieuwe boot natuurlijk\n>")
@@ -102,6 +225,8 @@ def land():
     Cuba()
   else:
     land()
+
+
 
 
 def Cuba():
@@ -117,12 +242,18 @@ def Cuba():
     Cuba()
 
 
+
+
 def CubaC():
   game_over("\nJe bent gelukkig en leid je leven met geluk je sterft op oude leeftijd met je kinderen en vrouw aan je zij")
 
 
+
+
 def CubaB():
   game_over("\nJe gaat terug naar je land van afkomst hier word je opgepakt en opgesloten.")
+
+
 
 
 def CubaA():
@@ -130,9 +261,13 @@ def CubaA():
   game_over("\nJe start een succesvol drugs cartel todat je een olie mijn vind vol met olie de amerikaanse overheid stuurt een A-10 warthog naar jou toe om het te stelen helaas kom je om")
 
 
+
+
 def BootA():
 
   game_over("De boot was te fragiel om te varen je komt om in de crash.")
+
+
 
 
 def nosnitch():
@@ -148,9 +283,13 @@ def nosnitch():
     nosnitch()
 
 
+
+
 def nosnitchb():
 
   game_over("iemand belt het leger die zeiden dat ze zouden komen jij wacht op ze, Een aantal uur later komen ze aan alleen word jij geraakt door een van de tanks en je sterft.")
+
+
 
 
 def nosnitcha():
@@ -158,9 +297,13 @@ def nosnitcha():
   game_over("je vecht de rest van de tijd met de dictator totdat je uiteindelijk wint.")
 
 
+
+
 def Executie():
 
   print("\nJe zei een verkeerd woord en werd gexecuteerd.")
+
+
 
 
 def Vraag1B():
@@ -173,6 +316,8 @@ def Vraag1B():
     AutoStart()
   else:
     Vraag1B("Kom op man / vrouw!")
+
+
 
 
 def AutoStart():
@@ -188,6 +333,8 @@ def AutoStart():
     AutoStart("Kom op man / vrouw!")
 
 
+
+
 def Auto1C():
 
   answer = input("\nJe praat met de soldaten en je komt er achter dat je veel met ze gemeen heb en ze nodigen je uit naar een feestje. wat zeg je?\nA) Prima,\nB) nee sorry ik moet door mischien de volgende keer,\nC) Rot op.")
@@ -201,9 +348,13 @@ def Auto1C():
     Auto1C()
 
 
+
+
 def Nee():
 
   print("De dictator respecteerd je keuze en geeft je een penthouse. je leeft de rest van je leven in comfort.")
+
+
 
 
 def Feestje():
@@ -217,14 +368,20 @@ def Feestje():
     Feestje()
 
 
+
+
 def Leider():
 
   print("De dictator respecteerd je keuze en geeft je een penthouse. je leeft de rest van je leven in comfort.")
 
 
+
+
 def SealTeam6():
 
   print("A) na een aantal jaar als een officier word je vermoord door seal team 6.")
+
+
 
 
 def GoodEnding1():
@@ -238,6 +395,8 @@ def GoodEnding1():
     GoodEnding1()
 
 
+
+
 def GoodEnding1B():
 
   answer = input("\nJe zwijgt maar dit maakt de nederlanders niet uit die denken dat je getraumatiseerd ben dus laten je. Je doet je inburgering Leer je nederlands\n Y/N?")
@@ -249,9 +408,13 @@ def GoodEnding1B():
     GoodEnding1B()
 
 
+
+
 def GoodEnding1BNo():
 
   print("Leven in nederland is lastiger er word meer naar je gediscrimineerd maar je kan er mee leven.")
+
+
 
 
 def GoodEnding1BYes():
@@ -259,9 +422,13 @@ def GoodEnding1BYes():
   print("Je word goed ingeburgerd en je vind vrienden goede vrienden ze  helpen je door de lastige tijden je leven is goed hier. maar je mist thuis wel")
 
 
+
+
 def GoodEnding1A():
 
   print("\nJe help ze en krijgt snellere unburgering na 3 jaar heb je een gezin en een succesvolle baan, Het was verassend hoe snel ik de taal heb geleerd")
+
+
 
 
 def AutoStartA():
@@ -277,6 +444,8 @@ def AutoStartA():
     AutoStartA("Kom op man / vrouw!")
 
 
+
+
 def AutoBoem():
 
   answer = input("\nJe komt ongeveer 2km verder tot de motorkap gaat roken wat doe je?\nA) Ik blijf rijden,\nB) Ik snap snel uit.\n>")
@@ -288,9 +457,13 @@ def AutoBoem():
     AutoBoem("Kom op man / vrouw!")
 
 
+
+
 def AutoBoemB():
 
   game_over("Je komt niet snel genoeg uit de auto en hij explodeert")
+
+
 
 
 def AutoBoemA():
@@ -298,9 +471,13 @@ def AutoBoemA():
   game_over("De auto explodeert")
 
 
+
+
 def AutoStartAB():
 
   game_over("De soldaten lopen naar je raam en trekken je er uit, ze maken grappen over hoe dom je bent en schieten je daarna neer.")
+
+
 
 
 def Grot():
@@ -316,15 +493,21 @@ def Grot():
     Grot("Kom op man / vrouw!")
 
 
+
+
 def GrotA():
 
   game_over("Dit is niet een film de pijn word te veel en je sterft aan een hartaanval.")
+
+
 
 
 def GrotB():
 
   game_over("Je loopt Hopelijk richting de grens")
   Vraag1CA()
+
+
 
 
 def GrotC():
@@ -340,9 +523,13 @@ def GrotC():
     game_over("Kom op man / vrouw!")
 
 
+
+
 def GrotCDeath1():
 
   game_over("De pijn houd je 5 minuten wakker maar je hart kan het niet houden je sterft")
+
+
 
 
 def GrotCDeath2():
@@ -350,28 +537,13 @@ def GrotCDeath2():
   game_over("Je gaat slapen maar dit is permanent")
 
 
+
+
 def GrotCDeath3():
 
   game_over("Je kan niet wakker blijven en sterft aan de verwonding.")
 
 
-def template():
 
-  print("\n")
-
-  answer = input(">")
-  
-  if answer == "a":
-
-    insert()
-  elif answer == "b":
-
-    Insert()
-  elif answer == "c":
-
-    Insert()
-  else:
-
-    game_over("Kom op man / vrouw!")
 
 start()
